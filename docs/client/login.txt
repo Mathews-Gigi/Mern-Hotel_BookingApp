@@ -1,0 +1,11 @@
+Login and Registration 
+
+***auth working***
+
+the form in app capture the details , when submmited it create a post request to the backend Api , we capture the password(encripted) from the request with backend  ,se save them to mongo db 
+
+we create a json web token when the user is authenticated and return with a http cookiee its send back to user and stored in user browser which can only be read by server .
+
+when user perform operation the token is send along with request to find that the user is loged in etc..
+
+token cannot be acced by js or browser its sequre because it can only be read by server from they orginally are .
