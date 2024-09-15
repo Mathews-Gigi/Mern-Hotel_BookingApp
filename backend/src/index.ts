@@ -4,7 +4,7 @@ import express, { Express, Request, Response } from "express";
 import cors from "cors";
 import "dotenv/config";
 import mongoose from "mongoose";
-
+import userRoutes from "./routes/users";
 //mongoose mongodb connection
 //as string , to counter the undifines, its set as string
 mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string);
@@ -15,10 +15,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 //cors for security , it reject certain request
 
-//
-app.get("/", async (req: Request, res: Response) => {
-  res.json({ message: "hello world , this is a api test" });
-});
+//  any requst for /api/users as endpoint  this is our entpoint setup
+app.use("/api/users", userRoutes);
+//task the endpoint with api client like postman 
 
 // start the server here at 7000
 
